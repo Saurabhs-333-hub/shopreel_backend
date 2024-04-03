@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 router.get('/profile/:id', (req, res) => {
   getUser(req, res).then((user) => {
     res.json(user)
+    console.log(user)
   })
 });
 
