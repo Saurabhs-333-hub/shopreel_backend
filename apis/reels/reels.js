@@ -25,9 +25,9 @@ const getReelByUserID = async (req, res) => {
     try {
         const userId = req.params.id
         console.log(userId)
-        return await database.listDocuments(`${process.env.NEXT_PUBLIC_DATABASE_ID}`, `${process.env.NEXT_PUBLIC_COLLECTION_ID_VIDEOS}`, [
-            Query.equal('userid', userId)
-        ])
+        return await database.listDocuments(`${process.env.NEXT_PUBLIC_DATABASE_ID}`, `${process.env.NEXT_PUBLIC_COLLECTION_ID_VIDEOS}`,
+            [Query.equal('userid', userId)]
+        )
     } catch (e) {
         console.log(e)
         return e.message

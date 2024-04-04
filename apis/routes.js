@@ -38,7 +38,7 @@ router.get('/reels/:id', (req, res) => {
 }
 )
 
-router.get('/reels/user/:id', (req, res) => {
+router.get('/userReels/:id', (req, res) => {
     getReelByUserID(req, res).then((reel) => {
         res.json(reel)
     })
