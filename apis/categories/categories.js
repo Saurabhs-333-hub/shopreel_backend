@@ -11,4 +11,16 @@ const getCategories = async (req, res) => {
     }
 }
 
-module.exports = {getCategories};
+const getCategoryByID = async (req, res) => {
+    try{
+        const categoryId = req.params.id
+        console.log(categoryId)
+        return await database.getDocument(`${process.env.NEXT_PUBLIC_DATABASE_ID}`,`${process.env.NEXT_PUBLIC_COLLECTION_ID_CATEGORIES}`,categoryId )
+    }
+    catch(e){
+        console.log(e)
+        return e.message
+    }
+}
+
+module.exports = {getCategories, getCategoryByID};
