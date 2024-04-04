@@ -20,5 +20,17 @@ const getReelByID = async (req, res) => {
     }
 }
 
+const getReelByUserID = async (req, res) => {
+    try {
+        const userId = req.params.id
+        console.log(userId)
+        return await database.listDocuments(`${process.env.NEXT_PUBLIC_DATABASE_ID}`, `${process.env.NEXT_PUBLIC_COLLECTION_ID_VIDEOS}`, userId)
+    } catch (e) {
+        console.log(e)
+        return e.message
+    }
 
-module.exports = {getAllReels, getReelByID};
+}
+
+
+module.exports = {getAllReels, getReelByID, getReelByUserID};

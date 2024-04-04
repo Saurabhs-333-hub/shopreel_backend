@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {getUser}=require('./users/getUser.js')
 const {getCategories, getCategoryByID}=require('./categories/categories.js')
-const {getAllReels,getReelByID} = require("./reels/reels");
+const {getAllReels,getReelByID, getReelByUserID} = require("./reels/reels");
 router.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -33,6 +33,13 @@ router.get('/reels', (req, res) => {
 
 router.get('/reels/:id', (req, res) => {
     getReelByID(req, res).then((reel) => {
+        res.json(reel)
+    })
+}
+)
+
+router.get('/reels/user/:id', (req, res) => {
+    getReelByUserID(req, res).then((reel) => {
         res.json(reel)
     })
 }
