@@ -57,7 +57,7 @@ router.get('/reelsFilters', (req, res) => {
 
 router.post('/uploadSongToStorage', async (req, res) => {
     console.log(req)
-    res.json(req.body)
+    res.json(req)
     await uploadSongToStorage(req.body, res).then((song) => {
         res.json(song)
     })
