@@ -1,20 +1,23 @@
-const express = require('express');
+import express from "express";
 const app = express();
-const cors = require('cors');
-const port = 3001;
-const routes = require('../apis/routes');
-require('dotenv').config(
+import cors from "cors";
+const port = 3000;
+import routes from "../apis/routes.js";
+import 'dotenv'
+import { config } from 'dotenv'
+config(
     {
         path: './.env'
     }
+
 )
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/', routes);
-app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.use((req, res, next) => {
-    if (req.url==='/') {
+    if (req.url === '/') {
         res.redirect('/api');
         next();
     }
@@ -24,7 +27,7 @@ app.use((req, res, next) => {
 
 
 app.listen(port, () => {
-    console.log(`listening on http://localhost:${port}!`);
+    console.log(`listening on http://localhost:${port}`);
 });
 
-module.exports=app;
+export default app;
