@@ -1,4 +1,5 @@
-const { database } = require('../../appwrite_config/appwrite_config');
+import { database } from "../../appwrite_config/appwrite_config.js"
+
 const getUser = async (req, res) => {
     try{
         const userId = req.params.id
@@ -12,4 +13,4 @@ const getUser = async (req, res) => {
     }
 }
 
-module.exports = {getUser};
+export {getUser};

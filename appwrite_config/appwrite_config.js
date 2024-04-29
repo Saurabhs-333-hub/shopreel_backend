@@ -1,4 +1,4 @@
-const db = require('node-appwrite')
+import db from 'node-appwrite';
 
 const client = new db.Client();
 client.setEndpoint(`https://cloud.appwrite.io/v1`);
@@ -12,7 +12,7 @@ const id=db.ID;
 const account = new db.Account(client);
 const exception=db.AppwriteException;
 
-module.exports = {
+export {
     client,
     database,
     storage,

@@ -1,4 +1,5 @@
-import { database, storage } from "../../appwrite_config/appwrite_config";
+import { InputFile } from "node-appwrite";
+import { database, storage } from "../../appwrite_config/appwrite_config.js";
 
 
 const uploadSong = async (req, res) => {
@@ -72,20 +73,15 @@ const getSongsByCategoryName = async (req, res) => {
     }
 }
 
-const uploadSongToStorage = async (req, res) => {
+const uploadSongToStorage = async (file) => {
     try {
-        console.log(req.data)
-        const file = req.data
-        const buffer = file.data
-        const name = file.name
-        const path = `songs/${name}`
+        console.log(file)
         const id = Date.now()
-        const response = await storage.createFile(`${process.env.NEXT_PUBLIC_COLLECTION_ID_SONGS}`, id, file)
-        return response
+        console.log(id)
     } catch (e) {
         console.log(e)
         return e.message
     }
 }
 
-module.exports = { uploadSong, getSongs, getSongByID, getSongsByUserID, getSongsByCategoryID, getSongsByCategoryName, uploadSongToStorage };
+export { uploadSong, getSongs, getSongByID, getSongsByUserID, getSongsByCategoryID, getSongsByCategoryName, uploadSongToStorage };

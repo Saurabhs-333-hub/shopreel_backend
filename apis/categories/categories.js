@@ -1,4 +1,4 @@
-import {database} from "../../appwrite_config/appwrite_config";
+import {database} from "../../appwrite_config/appwrite_config.js";
 
 const getCategories = async (req, res) => {
     try{
@@ -23,4 +23,4 @@ const getCategoryByID = async (req, res) => {
     }
 }
 
-module.exports = {getCategories, getCategoryByID};
+export {getCategories, getCategoryByID};

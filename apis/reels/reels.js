@@ -1,4 +1,4 @@
-import {database} from "../../appwrite_config/appwrite_config";
+import {database} from "../../appwrite_config/appwrite_config.js";
 import {Query} from "node-appwrite";
 
 const getAllReels = async (req, res) => {
@@ -125,4 +125,4 @@ const getReelsByFilters = async (req, res) => {
 }
 
 
-module.exports = {getAllReels, getReelByID, getReelByUserID, getReelByCategoryID, getReelByCategoryName, getReelsBySearch, getReelsByTag, getReelsByFilters};
+export  {getAllReels, getReelByID, getReelByUserID, getReelByCategoryID, getReelByCategoryName, getReelsBySearch, getReelsByTag, getReelsByFilters};

@@ -1,8 +1,10 @@
-const router = require('express').Router();
-const { getUser } = require('./users/getUser.js')
-const { getCategories, getCategoryByID } = require('./categories/categories.js')
-const { getAllReels, getReelByID, getReelByUserID, getReelsByFilters } = require("./reels/reels");
-const { uploadSongToStorage, } = require("./songs/songs.js")
+import express from "express";
+
+const router = express.Router();
+import { getUser } from './users/getUser.js'
+import { getCategories, getCategoryByID } from './categories/categories.js'
+import { getAllReels, getReelByID, getReelByUserID, getReelsByFilters } from './reels/reels.js'
+import { uploadSongToStorage } from './songs/songs.js'
 router.get('/', (req, res) => {
     res.send('Hello World!');
 });
@@ -53,10 +55,11 @@ router.get('/reelsFilters', (req, res) => {
 }
 )
 
-router.post('/uploadSongToStorage', (req, res) => {
-    uploadSongToStorage(req.body, res).then((song) => {
+router.post('/uploadSongToStorage', async (req, res) => {
+    console.log(req)
+    await uploadSongToStorage(req.body).then((song) => {
         res.json(song)
     })
 })
 
-module.exports = router;
+export default router;
