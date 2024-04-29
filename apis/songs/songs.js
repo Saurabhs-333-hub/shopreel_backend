@@ -73,7 +73,7 @@ const getSongsByCategoryName = async (req, res) => {
     }
 }
 
-const uploadSongToStorage = async (file) => {
+const uploadSongToStorage = async (file,res) => {
     try {
         console.log(file)
         const id = Date.now()
